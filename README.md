@@ -11,5 +11,11 @@ Commands:
     - Tools to get a list of possible exploits from a service/protocol/tool/cms/etc...
     - Format: ``searchsploit <name>``
 - base64
-    - Tools to decode/encode strings into base64
+    - Tools to decode/encode strings into base64 (in a real scenario, the string should be in a file)
     - Format: ``base64 -d "<string to decode>"`` or ``base64 "<string to encode>"``
+- md5sum
+    - Tools to encode strings into md5 (in a real scenario, the string should be in a file)
+    - Format: ``md5 "<string to encode>"``
+- xxd
+    - Tools to encode strings into md5 (in a real scenario, the string should be in a file)
+    - Format: ``xxd "<string to encode>"`` or ``xxd -r -p "<string to decode>"``
