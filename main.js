@@ -19,7 +19,9 @@ let example9 = "base64 -d 'SGVsbG8gV29ybGQ='";
 let example10 = "md5sum \"Hello World\"";
 
 let example11 = "xxd \"Hello World\"";
-let example12 = "xxd -r -p \"48656c6c6f20576f726c64\"";
+let example12 = "xxd -p \"Hello World\"";
+let example13 = "xxd -r \"48 65 6c 6c 6f 20 57 6f 72 6c 64\""
+let example14 = "xxd -r -p \"48656c6c6f20576f726c64\"";
 
 function commandIdentifier(string) {
     let splitted = string.split(" ")
@@ -76,4 +78,6 @@ console.log("\n");
 console.log("\n");
 run(example11)
 run(example12)
+run(example13)
+run(example14)
 console.log("\n");
