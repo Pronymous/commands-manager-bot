@@ -10,3 +10,6 @@ Commands:
 - searchsploit
     - Tools to get a list of possible exploits from a service/protocol/tool/cms/etc...
     - Format: ``searchsploit <name>``
+- base64
+    - Tools to decode/encode strings into base64
+    - Format: ``base64 -d "<string to decode>"`` or ``base64 "<string to encode>"``
