@@ -3,6 +3,7 @@ import { searchsploit_manager } from './src/searchsploit-manager.js';
 import { base64_manager } from './src/base64-manager.js';
 import { md5sum_manager } from './src/md5sum-manager.js';
 import { xxd_manager } from './src/xxd-manager.js';
+import { john_manager } from './src/john-manager.js';
 
 let example1 = "nmap -T5 -p 25,28,30 10.10.10.10 -sC -sV";
 let example2 = "nmap -T0 -p 25-30 10.10.10.10 -sC";
@@ -22,6 +23,10 @@ let example11 = "xxd \"Hello World\"";
 let example12 = "xxd -p \"Hello World\"";
 let example13 = "xxd -r \"48 65 6c 6c 6f 20 57 6f 72 6c 64\""
 let example14 = "xxd -r -p \"48656c6c6f20576f726c64\"";
+
+let example15 = "john \"098f6bcd4621d373cade4e832627b4f6\"";
+let example16 = "john --format=SHA256 \"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\"";
+let example17 = "john --format=NT --wordlist=rockyou.txt \"098f6bcd4621d373cade4e832627b4f6\"";
 
 function commandIdentifier(string) {
     let splitted = string.split(" ")
@@ -48,6 +53,9 @@ function run(command) {
         console.log(result);
     } else if (commandName === "xxd") {
         result = xxd_manager(command);
+        console.log(result);
+    } else if (commandName === "john") {
+        result = john_manager(command);
         console.log(result);
     }
     return result;
@@ -80,4 +88,10 @@ run(example11)
 run(example12)
 run(example13)
 run(example14)
+console.log("\n");
+
+console.log("\n");
+run(example15)
+run(example16)
+run(example17)
 console.log("\n");
