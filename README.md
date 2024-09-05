@@ -21,4 +21,5 @@ Commands:
     - Format: ``xxd "<string to encode>"``, ``xxd -r -p "<string to decode>"``
     - Arguments available: ``-p``, ``-r``
 - john
-    - Tools to crack hashs: MD5, SHA256 etc. 
+    - Tools to crack hashs: MD5, SHA256, NTLM etc.
+    - Format: ``john --format=<hash format> --wordlist=<path/to/wordlist> "<hash>"``
