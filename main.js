@@ -4,29 +4,7 @@ import { base64_manager } from './src/base64-manager.js';
 import { md5sum_manager } from './src/md5sum-manager.js';
 import { xxd_manager } from './src/xxd-manager.js';
 import { john_manager } from './src/john-manager.js';
-
-let example1 = "nmap -T5 -p 25,28,30 10.10.10.10 -sC -sV";
-let example2 = "nmap -T0 -p 25-30 10.10.10.10 -sC";
-let example3 = "nmap -T3 -p 25 website.com -sV";
-
-let example4 = "searchsploit vsftpd 3.0.3";
-let example5 = "searchsploit Webdav";
-let example6 = "searchsploit OpenSSH 7.6";
-
-let example7 = "base64 'Hello World'";
-let example8 = "base64 \"Hello World\"";
-let example9 = "base64 -d 'SGVsbG8gV29ybGQ='";
-
-let example10 = "md5sum \"Hello World\"";
-
-let example11 = "xxd \"Hello World\"";
-let example12 = "xxd -p \"Hello World\"";
-let example13 = "xxd -r \"48 65 6c 6c 6f 20 57 6f 72 6c 64\""
-let example14 = "xxd -r -p \"48656c6c6f20576f726c64\"";
-
-let example15 = "john \"098f6bcd4621d373cade4e832627b4f6\"";
-let example16 = "john --format=SHA256 \"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\"";
-let example17 = "john --format=NT --wordlist=rockyou.txt \"098f6bcd4621d373cade4e832627b4f6\"";
+import { echo_manager } from './src/echo-manager.js';
 
 function commandIdentifier(string) {
     let splitted = string.split(" ")
@@ -57,41 +35,55 @@ function run(command) {
     } else if (commandName === "john") {
         result = john_manager(command);
         console.log(result);
+    } else if (commandName === "echo") {
+        result = echo_manager(command);
+        console.log(result);
     }
     return result;
 }
 
 console.log("\n");
-run(example1)
-run(example2)
-run(example3)
+run("nmap -T5 -p 25,28,30 10.10.10.10 -sC -sV");
+run("nmap -T0 -p 25-30 10.10.10.10 -sC");
+run("nmap -T3 -p 25 website.com -sV");
 console.log("\n");
 
 console.log("\n");
-run(example4)
-run(example5)
-run(example6)
+run("searchsploit vsftpd 3.0.3");
+run("searchsploit Webdav");
+run("searchsploit OpenSSH 7.6");
 console.log("\n");
 
 console.log("\n");
-run(example7)
-run(example8)
-run(example9)
+run("base64 'Hello World'");
+run("base64 \"Hello World\"");
+run("base64 -d 'SGVsbG8gV29ybGQ='");
 console.log("\n");
 
 console.log("\n");
-run(example10)
+run("md5sum \"Hello World\"");
 console.log("\n");
 
 console.log("\n");
-run(example11)
-run(example12)
-run(example13)
-run(example14)
+run("xxd \"Hello World\"");
+run("xxd -p \"Hello World\"");
+run("xxd -r \"48 65 6c 6c 6f 20 57 6f 72 6c 64\"");
+run("xxd -r -p \"48656c6c6f20576f726c64\"");
 console.log("\n");
 
 console.log("\n");
-run(example15)
-run(example16)
-run(example17)
+run("john \"098f6bcd4621d373cade4e832627b4f6\"");
+run("john --format=SHA256 \"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\"");
+run("john --format=NT --wordlist=rockyou.txt \"098f6bcd4621d373cade4e832627b4f6\"");
+console.log("\n");
+
+console.log("\n");
+run("echo 'hello world'");
+run("echo \"hello world\"");
+run("echo 'hello world' | base64");
+run("echo 'aGVsbG8gd29ybGQ=' | base64 -d");
+run("echo 'hello world' | xxd");
+run("echo '68 65 6c 6c 6f 20 77 6f 72 6c 64' | xxd -r")
+run("echo '68656c6c6f20776f726c64' | xxd -r -p")
+run("echo 'Hello World' | md5sum");
 console.log("\n");
