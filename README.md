@@ -2,6 +2,8 @@
 
 Manager for commands for the discord bot.
 
+You can see examples in ``main.js`` file.
+
 Commands:
 - nmap
     - Tools to scan networks and machines.
@@ -23,3 +25,6 @@ Commands:
 - john
     - Tools to crack hashs: MD5, SHA256, NTLM etc.
     - Format: ``john --format=<hash format> --wordlist=<path/to/wordlist> "<hash>"``
+- echo
+    - Tools to show the content of a string, use base64/xxd/md5sum like a real scenario of a pentest.
+    - Format: ``echo "<string>" < | <command> <arguments> >``
